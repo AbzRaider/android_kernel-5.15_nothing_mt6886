@@ -49,7 +49,7 @@ else
 fi
 
 echo -e "\nStarting compilation...\n"
-make -j$(nproc --all) O=out ARCH=arm64 CC=clang LLVM_IAS=1 LD=$CLANG_DIR/bin/ld.lld AR=$CLANG_DIR/bin/llvm-ar NM=$CLANG_DIR/bin/llvm-nm OBJCOPY=$CLANG_DIR/bin/llvm-objcopy OBJDUMP=$CLANG_DIR/bin/llvm-objdump STRIP=$CLANG_DIR/bin/llvm-strip
+make -j$(nproc --all) O=out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-gnu- NDK_TRIPLE=aarch64-linux-android31
 
 kernel="out/arch/arm64/boot/Image.gz"
 
