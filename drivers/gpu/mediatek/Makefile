@@ -18,8 +18,10 @@ $(info MTK_GPU_VERSION = $(MTK_GPU_VERSION))
 
 ifneq ($(CONFIG_MTK_PLATFORM),)
 export MTK_PLATFORM = $(subst ",,$(CONFIG_MTK_PLATFORM))
+export MTK_PLATFORM_VERSION = $(subst ",,$(CONFIG_MTK_PLATFORM))
 else
 export MTK_PLATFORM = $(word 4,$(MTK_GPU_VERSION))
+export MTK_PLATFORM_VERSION = $(word 4,$(MTK_GPU_VERSION))
 endif
 
 ifeq ($(MTK_PLATFORM),mt6873)
