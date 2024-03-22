@@ -15,8 +15,13 @@ ifneq ($(CONFIG_MTK_GPU_VERSION),"")
 MTK_GPU_VERSION = $(subst ",,$(CONFIG_MTK_GPU_VERSION))
 endif
 
+export CONFIG_MALI_MEMORY_GROUP_MANAGER = y
+export CONFIG_MALI_PROTECTED_MEMORY_ALLOCATOR = y
+
 ifneq ($(word 3,$(MTK_GPU_VERSION)),)
     obj-y += mali-$(word 3,$(MTK_GPU_VERSION))/drivers/gpu/arm/midgard/
+    obj-y += mali-$(word 3,$(MTK_GPU_VERSION))/drivers/base/arm/memory_group_manager/
+    obj-y += mali-$(word 3,$(MTK_GPU_VERSION))/drivers/base/arm/protected_memory_allocator/
 else
     obj-y += mali-EAC/drivers/
 endif
