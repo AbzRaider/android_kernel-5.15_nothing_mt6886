@@ -307,14 +307,9 @@ subdir-ccflags-y += $(ccflags-y)
 #obj-$(CONFIG_MALI_MIDGARD) += mali_kbase.o
 
 # MTK: Tell the Linux build system from which .o file to create the kernel module
-ifneq ($(CONFIG_MTK_GPU_VERSION),"")
-    # LD1.0
-    obj-$(CONFIG_MALI_MIDGARD) += mali_kbase.o
-else ifneq ($(wildcard $(KO_CODE_PATH)/platform/$(MTK_PLATFORM)),)
     # LD2.0
     obj-$(CONFIG_MALI_MIDGARD) += mali_kbase_$(MTK_PLATFORM).o
     mali_kbase_$(MTK_PLATFORM)-y += $(mali_kbase-y) $(mali_kbase-m)
-endif
 
 ifeq ($(CONFIG_MTK_TRUSTED_MEMORY_SUBSYSTEM), y)
     include $(srctree)/drivers/misc/mediatek/trusted_mem/Makefile.include
