@@ -12,7 +12,8 @@ ENTRY_LEVEL_DEFCONFIG="entry_level.config"
 
 
 if [ ! -d "clang" ]; then
-	git clone https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b clang
+	git clone --depth=1 https://gitlab.com/yaosp/prebuilts_clang_host_linux-x86 yasi_clang
+	mv yasi_clang/clang-r450784e clang
 fi
 
 export PATH="$CLANG_DIR/bin:$PATH"
