@@ -98,3 +98,5 @@ obj-$(CONFIG_MTK_GATE_IC) += gate_ic/
 obj-$(CONFIG_USB) += usb/
 obj-$(CONFIG_MTK_WIDEVINE_DRM) += widevine_drm/
 obj-$(CONFIG_MTK_MT6382_BDG) += spi_slave_drv/
+# MTK MET Driver v3.0
+obj-y += met_drv_v3/
