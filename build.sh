@@ -59,7 +59,9 @@ if [ -f "$kernel" ]; then
 	git clone https://github.com/AbzRaider/AnyKernel3 -b pacman AnyKernel --depth=1
 	cp out/arch/arm64/boot/Image.gz AnyKernel
 	cd AnyKernel
+	wget https://gist.githubusercontent.com/sarthakroy2002/feb724b4d07781c85be6df0595739806/raw/536e2433eddec9875bc517f59e21e85c6f1fe6a8/upload.sh
 	zip -r9 TEST-OSS-KERNEL-PACMAN-T.zip *
+	bash upload.sh TEST-OSS-KERNEL-PACMAN-T.zip
 else
 	echo -e "\nCompilation failed!"
 	exit 1
